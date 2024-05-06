@@ -18,16 +18,19 @@ import hellfirepvp.astralsorcery.common.crafting.altar.recipes.upgrade.TraitUpgr
 import hellfirepvp.astralsorcery.common.crafting.helper.ShapedRecipeSlot;
 import hellfirepvp.astralsorcery.common.item.ItemCraftingComponent;
 import hellfirepvp.astralsorcery.common.item.useables.ItemUsableDust;
+import hellfirepvp.astralsorcery.common.lib.BlocksAS;
 import hellfirepvp.astralsorcery.common.lib.Constellations;
 import hellfirepvp.astralsorcery.common.tile.TileAltar;
 import hellfirepvp.astralsorcery.common.util.MiscUtils;
 import hellfirepvp.astralsorcery.common.util.data.Vector3;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thelm.packagedastral.block.BlockConstellationCrafter;
 import thelm.packagedastral.block.BlockTraitCrafter;
 import thelm.packagedastral.item.ItemConstellationFocus;
+import thelm.packagedastral.tile.TileConstellationCrafter;
 
 public class RecipeTraitCrafter extends TraitRecipe implements INighttimeRecipe, ISpecialCraftingEffects {
 
@@ -39,7 +42,7 @@ public class RecipeTraitCrafter extends TraitRecipe implements INighttimeRecipe,
 
 	protected RecipeTraitCrafter() {
 		super(shapedRecipe("packagedastral/trait_crafter", BlockTraitCrafter.INSTANCE).
-				addPart(BlockConstellationCrafter.INSTANCE, ShapedRecipeSlot.CENTER).
+				addPart(TileConstellationCrafter.enabled ? new ItemStack(BlockConstellationCrafter.INSTANCE) : new ItemStack(BlocksAS.blockAltar, 1, 3), ShapedRecipeSlot.CENTER).
 				addPart(ItemConstellationFocus.INSTANCE, ShapedRecipeSlot.UPPER_CENTER).
 				addPart(ItemHandle.getCrystalVariant(false, true), ShapedRecipeSlot.LOWER_CENTER).
 				addPart(Items.ENDER_EYE, ShapedRecipeSlot.LEFT, ShapedRecipeSlot.RIGHT).

@@ -7,8 +7,10 @@ import hellfirepvp.astralsorcery.common.crafting.ItemHandle;
 import hellfirepvp.astralsorcery.common.crafting.altar.recipes.AttunementRecipe;
 import hellfirepvp.astralsorcery.common.crafting.helper.ShapedRecipeSlot;
 import hellfirepvp.astralsorcery.common.lib.BlocksAS;
+import net.minecraft.item.ItemStack;
 import thelm.packagedastral.block.BlockAttunementCrafter;
 import thelm.packagedastral.block.BlockDiscoveryCrafter;
+import thelm.packagedastral.tile.TileDiscoveryCrafter;
 
 public class RecipeAttunementCrafter extends AttunementRecipe implements INighttimeRecipe {
 
@@ -16,7 +18,7 @@ public class RecipeAttunementCrafter extends AttunementRecipe implements INightt
 
 	protected RecipeAttunementCrafter() {
 		super(shapedRecipe("packagedastral/attunement_crafter", BlockAttunementCrafter.INSTANCE).
-				addPart(BlockDiscoveryCrafter.INSTANCE, ShapedRecipeSlot.CENTER).
+				addPart(TileDiscoveryCrafter.enabled ? new ItemStack(BlockDiscoveryCrafter.INSTANCE) : new ItemStack(BlocksAS.blockAltar, 1, 1), ShapedRecipeSlot.CENTER).
 				addPart(ItemHandle.getCrystalVariant(false, false), ShapedRecipeSlot.UPPER_CENTER).
 				addPart(BlocksAS.fluidLiquidStarlight, ShapedRecipeSlot.LOWER_CENTER).
 				addPart(BlockMarble.MarbleBlockType.CHISELED.asStack(), ShapedRecipeSlot.LEFT, ShapedRecipeSlot.RIGHT).

@@ -13,13 +13,16 @@ import hellfirepvp.astralsorcery.common.crafting.altar.ActiveCraftingTask;
 import hellfirepvp.astralsorcery.common.crafting.altar.recipes.ConstellationRecipe;
 import hellfirepvp.astralsorcery.common.crafting.helper.ShapedRecipeSlot;
 import hellfirepvp.astralsorcery.common.item.ItemCraftingComponent;
+import hellfirepvp.astralsorcery.common.lib.BlocksAS;
 import hellfirepvp.astralsorcery.common.tile.TileAltar;
 import hellfirepvp.astralsorcery.common.util.MiscUtils;
 import hellfirepvp.astralsorcery.common.util.data.Vector3;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thelm.packagedastral.block.BlockAttunementCrafter;
 import thelm.packagedastral.block.BlockConstellationCrafter;
+import thelm.packagedastral.tile.TileAttunementCrafter;
 
 public class RecipeConstellationCrafter extends ConstellationRecipe implements INighttimeRecipe, ISpecialCraftingEffects {
 
@@ -31,7 +34,7 @@ public class RecipeConstellationCrafter extends ConstellationRecipe implements I
 
 	protected RecipeConstellationCrafter() {
 		super(shapedRecipe("packagedastral/constellation_crafter", BlockConstellationCrafter.INSTANCE).
-				addPart(BlockAttunementCrafter.INSTANCE, ShapedRecipeSlot.CENTER).
+				addPart(TileAttunementCrafter.enabled ? new ItemStack(BlockAttunementCrafter.INSTANCE) : new ItemStack(BlocksAS.blockAltar, 1, 2), ShapedRecipeSlot.CENTER).
 				addPart(ItemHandle.getCrystalVariant(false, false), ShapedRecipeSlot.UPPER_CENTER).
 				addPart("ingotAstralStarmetal", ShapedRecipeSlot.LOWER_CENTER).
 				addPart(BlockMarble.MarbleBlockType.CHISELED.asStack(), ShapedRecipeSlot.LEFT, ShapedRecipeSlot.RIGHT).
