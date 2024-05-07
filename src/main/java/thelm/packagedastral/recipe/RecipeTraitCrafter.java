@@ -24,7 +24,6 @@ import hellfirepvp.astralsorcery.common.tile.TileAltar;
 import hellfirepvp.astralsorcery.common.util.MiscUtils;
 import hellfirepvp.astralsorcery.common.util.data.Vector3;
 import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thelm.packagedastral.block.BlockConstellationCrafter;
@@ -42,7 +41,7 @@ public class RecipeTraitCrafter extends TraitRecipe implements INighttimeRecipe,
 
 	protected RecipeTraitCrafter() {
 		super(shapedRecipe("packagedastral/trait_crafter", BlockTraitCrafter.INSTANCE).
-				addPart(TileConstellationCrafter.enabled ? new ItemStack(BlockConstellationCrafter.INSTANCE) : new ItemStack(BlocksAS.blockAltar, 1, 3), ShapedRecipeSlot.CENTER).
+				addPart(TileConstellationCrafter.enabled ? BlockConstellationCrafter.INSTANCE : BlocksAS.blockAltar, ShapedRecipeSlot.CENTER).
 				addPart(ItemConstellationFocus.INSTANCE, ShapedRecipeSlot.UPPER_CENTER).
 				addPart(ItemHandle.getCrystalVariant(false, true), ShapedRecipeSlot.LOWER_CENTER).
 				addPart(Items.ENDER_EYE, ShapedRecipeSlot.LEFT, ShapedRecipeSlot.RIGHT).
